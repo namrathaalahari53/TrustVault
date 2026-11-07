@@ -9,11 +9,23 @@ const app = express();
 const PORT = parseInt(process.env.PORT || '3000', 10);
 const isProduction = process.env.NODE_ENV === 'production';
 
-// Security headers
-app.use((_req, res, next) => {
+app.set('trust proxy', 1);
+
+// Security & CORS headers
+app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+  // CORS support for iframe and preview environments
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept');
+
+  if (req.method === 'OPTIONS') {
+    res.status(204).end();
+    return;
+  }
   next();
 });
 
@@ -58,6 +70,16 @@ app.get('/ready', (_req: Request, res: Response) => {
 
 // Mount API routes
 app.use('/api', apiRouter);
+
+// JSON error handler for any uncaught errors in API routes
+app.use((err: any, _req: Request, res: Response, _next: any) => {
+  console.error('[TrustVault Server Error]', err);
+  const status = typeof err.status === 'number' && err.status >= 400 && err.status < 600 ? err.status : 500;
+  res.status(status).json({
+    error: err.code || 'SERVER_ERROR',
+    message: err.message || 'An unexpected server error occurred.',
+  });
+});
 
 // Development with Vite or Production Static Serving
 async function startServer() {

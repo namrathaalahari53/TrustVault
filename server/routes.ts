@@ -1296,4 +1296,12 @@ router.post('/tests/run', async (_req: Request, res: Response): Promise<void> =>
   }
 });
 
+// 404 catch-all for any unmatched /api routes
+router.use((req: Request, res: Response): void => {
+  res.status(404).json({
+    error: 'ENDPOINT_NOT_FOUND',
+    message: `API endpoint ${req.method} ${req.originalUrl || req.url} not found.`,
+  });
+});
+
 export default router;

@@ -43,6 +43,7 @@ export const api = {
   async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const token = this.getToken();
     const headers: Record<string, string> = {
+      'Accept': 'application/json',
       ...(options.headers as Record<string, string>),
     };
 
@@ -54,26 +55,51 @@ export const api = {
       headers['Content-Type'] = 'application/json';
     }
 
-    const res = await fetch(`/api${endpoint}`, {
-      ...options,
-      credentials: 'same-origin',
-      headers,
-    });
+    let res: Response;
+    try {
+      res = await fetch(`/api${endpoint}`, {
+        ...options,
+        headers,
+      });
+    } catch (networkErr: any) {
+      throw new Error(networkErr.message || 'Network connection failed. Please check your connectivity.');
+    }
+
+    // Safely retrieve the response text first so that empty responses or non-JSON never crash with "Unexpected end of JSON input"
+    let responseText = '';
+    try {
+      responseText = await res.text();
+    } catch {
+      responseText = '';
+    }
+
+    let data: any = null;
+    if (responseText && responseText.trim().length > 0) {
+      try {
+        data = JSON.parse(responseText);
+      } catch {
+        // Non-JSON response (e.g., HTML error or plaintext)
+        if (!res.ok) {
+          throw new Error(`Server error (${res.status}): ${responseText.slice(0, 150)}`);
+        }
+        data = { message: responseText };
+      }
+    }
 
     if (!res.ok) {
-      let errorMessage = `Request failed (${res.status})`;
-      try {
-        const errorData = await res.json();
-        errorMessage = errorData.message || errorData.error || errorMessage;
-      } catch {
-        // non-json response
-      }
+      const errorMessage = data?.message || data?.error || `Request failed with status ${res.status}`;
       const err = new Error(errorMessage) as any;
       err.status = res.status;
+      err.data = data;
       throw err;
     }
 
-    return res.json();
+    // If response was 200/204 with an empty body, return an empty object to satisfy callers safely
+    if (data === null || data === undefined) {
+      return {} as T;
+    }
+
+    return data as T;
   },
 
   // Auth
@@ -167,8 +193,11 @@ export const api = {
     if (!res.ok) {
       let errMsg = 'Failed to download document';
       try {
-        const json = await res.json();
-        errMsg = json.message || errMsg;
+        const text = await res.text();
+        if (text) {
+          const json = JSON.parse(text);
+          errMsg = json.message || json.error || errMsg;
+        }
       } catch {}
       const err = new Error(errMsg) as any;
       err.status = res.status;
@@ -194,8 +223,11 @@ export const api = {
     if (!res.ok) {
       let msg = 'Preview unauthorized';
       try {
-        const json = await res.json();
-        msg = json.message || msg;
+        const text = await res.text();
+        if (text) {
+          const json = JSON.parse(text);
+          msg = json.message || json.error || msg;
+        }
       } catch {}
       const err = new Error(msg) as any;
       err.status = res.status;
