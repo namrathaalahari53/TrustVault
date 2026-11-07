@@ -1,0 +1,466 @@
+{
+  "users": [
+    {
+      "id": "usr_admin_01",
+      "email": "admin@trustvault.security",
+      "password_hash": "7c230b5fe4e6fcdcdb353ef957fe3fb0:7c43d51d6481e18b909d365021c23431330ef296fd4363ccb097d774b20ef8ad4044d7b2c4301b72a33fd61c69af9e792b19a683fa585b35082ca1224d0dd63e",
+      "role": "ADMIN",
+      "is_active": true,
+      "must_change_password": false,
+      "full_name": "Arthur Vance (SecOps Lead)",
+      "department": "Security Operations & Governance",
+      "created_at": "2026-11-06T13:04:15.192Z",
+      "last_login_at": null
+    },
+    {
+      "id": "usr_owner_alex",
+      "email": "owner_alex@trustvault.security",
+      "password_hash": "d2d60f4bf33648567af92b74929fd287:30d0c45d4819eaaebe9d2437737846db5a8e541fb3e2b408d3b1d9ad48059fa32063b71015baf44d19083c0a7ba8d4fb3bd5b6a0f1a5f5dd667595579b75f8bd",
+      "role": "OWNER",
+      "is_active": true,
+      "must_change_password": false,
+      "full_name": "Alex Rivera (Principal Architect)",
+      "department": "Core Infrastructure",
+      "created_at": "2026-11-06T13:04:15.192Z",
+      "last_login_at": null
+    },
+    {
+      "id": "usr_owner_elena",
+      "email": "owner_elena@trustvault.security",
+      "password_hash": "da4c8f1f97e8fd4b3a656c43b0085bf9:7de5f5a900a5909f2ab3721dee91607bfb21a8f5b23960ccef4fc6e84548fbb53168eea8b375c16ace8eb32725d4d4427fd4fe8c229f134cd6b633186f276b41",
+      "role": "OWNER",
+      "is_active": true,
+      "must_change_password": false,
+      "full_name": "Elena Rostova (Compliance Officer)",
+      "department": "Regulatory Compliance",
+      "created_at": "2026-11-06T13:04:15.192Z",
+      "last_login_at": null
+    },
+    {
+      "id": "usr_viewer_sarah",
+      "email": "viewer_sarah@trustvault.security",
+      "password_hash": "3695ef2169c99de84db8ee9d61ee90dc:9e76e3c71b801393566d39610d4427d69f4414a1479406491d10d1305911145041d7099ae94c0b6fd8d97076feec704f74759c4ee2484de3f3cffd45bddcd810",
+      "role": "VIEWER",
+      "is_active": true,
+      "must_change_password": false,
+      "full_name": "Sarah Chen (Security Auditor)",
+      "department": "Internal Audit",
+      "created_at": "2026-11-06T13:04:15.192Z",
+      "last_login_at": null
+    },
+    {
+      "id": "usr_editor_david",
+      "email": "editor_david@trustvault.security",
+      "password_hash": "de944fbb7c5ca03185fc88346f46afbc:f46d65b3ec243c0fc15d3563e4523c1dbf9ddf035b6a4ae3abc00c70bbd0c3a10edad3ac9d9065d246b69894fd5359aec72c915a55e3b521f47f0a8fc4b4bc0f",
+      "role": "VIEWER",
+      "is_active": true,
+      "must_change_password": false,
+      "full_name": "David Keller (Senior DevSecOps)",
+      "department": "Security Engineering",
+      "created_at": "2026-11-06T13:04:15.192Z",
+      "last_login_at": null
+    },
+    {
+      "id": "usr_unauth_john",
+      "email": "unauth_john@trustvault.security",
+      "password_hash": "85fd4dc0a81a1e52b55785c8ff4d7418:ad24dd74e79fb31c5e78b796e51a7206c93a70c37dec0a55efc019c066e6e16fba7fb9771ad1b7e39350424d5482c5dba19939840d5020ada207caa6dbfd10ac",
+      "role": "VIEWER",
+      "is_active": true,
+      "must_change_password": false,
+      "full_name": "John Miller (Junior Analyst)",
+      "department": "Operations",
+      "created_at": "2026-11-06T13:04:15.192Z",
+      "last_login_at": null
+    },
+    {
+      "id": "usr_temp_user",
+      "email": "temp_user@trustvault.security",
+      "password_hash": "d22f79b236877dc12319b02e1e062d19:0679216dfc09a225e1fd77c536e662d99367abf47e7ed46f22dd714ff8ae496e6d7c397a306f3ed0e3da357c2d34485b679060f45a44055bff1d826366e63b9c",
+      "role": "VIEWER",
+      "is_active": true,
+      "must_change_password": true,
+      "full_name": "Taylor Quinn (Contractor)",
+      "department": "External Review",
+      "created_at": "2026-11-06T13:04:15.192Z",
+      "last_login_at": null
+    },
+    {
+      "id": "usr_inactive_mark",
+      "email": "inactive_mark@trustvault.security",
+      "password_hash": "969916b56a871bfa1c36c2149ec53b0a:fe00e1ce83b0d7d016e456d617678d2b2b3ad34785c595e121cbcd5defae0a15a25432e20950d5ef2348c20178d68fd1a9108bdb7ec4ef358fd862ee47a11936",
+      "role": "VIEWER",
+      "is_active": false,
+      "must_change_password": false,
+      "full_name": "Mark Hansen (Deactivated Account)",
+      "department": "Vendor Risk",
+      "created_at": "2026-11-06T13:04:15.192Z",
+      "last_login_at": null
+    },
+    {
+      "email": "test_new_user@trustvault.security",
+      "full_name": "Test User",
+      "department": "Engineering",
+      "role": "OWNER",
+      "is_active": true,
+      "must_change_password": false,
+      "password_hash": "8dd1dc54c5cd46aa90b7e3792bf3be9f:57e4ea58386cb91008cd13587b1f145728ea9fe8f2828fdc87559c3282406cda7c389b918a0ee148fe4992c07437e50cf8c38bc18c2bedce71a88041587423b7",
+      "last_login_at": "2026-11-06T14:05:05.659Z",
+      "id": "usr_2311e677",
+      "created_at": "2026-11-06T14:05:05.660Z"
+    }
+  ],
+  "documents": [
+    {
+      "id": "doc_iso_27001_soc2",
+      "title": "ISO 27001 & SOC 2 Security Policy",
+      "description": "Comprehensive access control specifications, zero-trust perimeter controls, and key management policies.",
+      "category": "Compliance & Security",
+      "owner_id": "usr_owner_alex",
+      "original_filename": "ISO_27001_SOC2_Plan.txt",
+      "storage_path": "doc_iso_27001_soc2.txt",
+      "mime_type": "text/plain",
+      "file_size": 439,
+      "sha256_checksum": "868550192b87d0598c50c50d53ae19ca74360285ae4aaf93a59a427be71bb397",
+      "document_status": "ACTIVE",
+      "created_at": "2026-11-03T13:04:15.833Z",
+      "updated_at": "2026-11-03T13:04:15.833Z"
+    },
+    {
+      "id": "doc_q3_financial_audit",
+      "title": "Q3 Financial Controls & Ledger Audit",
+      "description": "Internal risk assessment and regulatory compliance reporting for fiscal quarter audit.",
+      "category": "Finance & Risk",
+      "owner_id": "usr_owner_elena",
+      "original_filename": "Q3_Financial_Controls.txt",
+      "storage_path": "doc_q3_financial_audit.txt",
+      "mime_type": "text/plain",
+      "file_size": 261,
+      "sha256_checksum": "ac8de860be1cbb315a15f54df67f71209e0b4d265011eca566fceecef865fe86",
+      "document_status": "ACTIVE",
+      "created_at": "2026-11-04T13:04:15.833Z",
+      "updated_at": "2026-11-04T13:04:15.833Z"
+    },
+    {
+      "title": "Automated Test Security Plan",
+      "description": "Document created by test runner",
+      "category": "Security Testing",
+      "owner_id": "usr_owner_alex",
+      "original_filename": "security_test.txt",
+      "storage_path": "test_upload_1793970268504.txt",
+      "mime_type": "text/plain",
+      "file_size": 43,
+      "sha256_checksum": "d94cc704c5dc7b0bb79f8e22837707946f7033127cbaaf6481754713af1164b4",
+      "document_status": "ACTIVE",
+      "id": "doc_2afc6ce0",
+      "created_at": "2026-11-06T13:04:28.504Z",
+      "updated_at": "2026-11-06T13:04:28.504Z"
+    },
+    {
+      "title": "Automated Test Security Plan",
+      "description": "Document created by test runner",
+      "category": "Security Testing",
+      "owner_id": "usr_owner_alex",
+      "original_filename": "security_test.txt",
+      "storage_path": "test_upload_1793973918311.txt",
+      "mime_type": "text/plain",
+      "file_size": 43,
+      "sha256_checksum": "482decffb0defb33e4ee8fa8739725705bb49e60e9a5c69dcab4809e22486b70",
+      "document_status": "ACTIVE",
+      "id": "doc_68855fa5",
+      "created_at": "2026-11-06T14:05:18.312Z",
+      "updated_at": "2026-11-06T14:05:18.312Z"
+    }
+  ],
+  "permissions": [
+    {
+      "id": "perm_sarah_doc1",
+      "document_id": "doc_iso_27001_soc2",
+      "user_id": "usr_viewer_sarah",
+      "permission_level": "READ",
+      "granted_by_user_id": "usr_owner_alex",
+      "granted_at": "2026-11-04T13:04:15.833Z",
+      "revoked_at": null
+    },
+    {
+      "id": "perm_david_doc1",
+      "document_id": "doc_iso_27001_soc2",
+      "user_id": "usr_editor_david",
+      "permission_level": "EDIT",
+      "granted_by_user_id": "usr_owner_alex",
+      "granted_at": "2026-11-04T13:04:15.833Z",
+      "revoked_at": null
+    },
+    {
+      "id": "perm_1bb59c1e",
+      "document_id": "doc_iso_27001_soc2",
+      "user_id": "usr_unauth_john",
+      "permission_level": "EDIT",
+      "granted_by_user_id": "usr_owner_alex",
+      "granted_at": "2026-11-06T13:04:28.506Z",
+      "revoked_at": "2026-11-06T13:04:28.506Z"
+    },
+    {
+      "id": "perm_d266c3ba",
+      "document_id": "doc_iso_27001_soc2",
+      "user_id": "usr_unauth_john",
+      "permission_level": "EDIT",
+      "granted_by_user_id": "usr_owner_alex",
+      "granted_at": "2026-11-06T14:05:18.313Z",
+      "revoked_at": "2026-11-06T14:05:18.314Z"
+    }
+  ],
+  "audit_events": [
+    {
+      "id": "aud_1",
+      "event_id": "cda59cb1-3db4-480c-93bf-3302c3661799",
+      "sequence_number": 1,
+      "actor_user_id": "usr_admin_01",
+      "actor_email": "admin@trustvault.security",
+      "action": "SYSTEM_GENESIS",
+      "document_id": null,
+      "target_user_id": null,
+      "timestamp": "2026-11-04T13:04:16.833Z",
+      "outcome": "SUCCESS",
+      "reason_code": "SYSTEM_BOOTSTRAP",
+      "request_id": "req_init_1",
+      "metadata": {
+        "system": "TrustVault Core 1.0",
+        "mode": "STRICT_AUTHORIZATION"
+      },
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "canonical_hash": "26d48e08ee047c2ccad7266bd4ee697cb34cf3aafac0c2323fc4de311cf76c57",
+      "event_hash": "9017d89df3b43b2a8acc4d0c55ccdf9c3c6b13caf7c3849dc190ff065e99ef34"
+    },
+    {
+      "id": "aud_2",
+      "event_id": "fc832849-4822-4e4d-9909-1f5c4ed1d246",
+      "sequence_number": 2,
+      "actor_user_id": "usr_admin_01",
+      "actor_email": "admin@trustvault.security",
+      "action": "USER_CREATED",
+      "document_id": null,
+      "target_user_id": "usr_owner_alex",
+      "timestamp": "2026-11-04T13:04:17.834Z",
+      "outcome": "SUCCESS",
+      "reason_code": "PROVISION_OWNER_ROLE",
+      "request_id": "req_init_2",
+      "metadata": {
+        "email": "owner_alex@trustvault.security",
+        "role": "OWNER"
+      },
+      "previous_hash": "9017d89df3b43b2a8acc4d0c55ccdf9c3c6b13caf7c3849dc190ff065e99ef34",
+      "canonical_hash": "90729f4faacd355a9b3976be49440d8d7ed009b3b17d20f302bec9571e95e852",
+      "event_hash": "ba2c50ecb26d8dd74fe10b1acb2ea0167d685aaf7f155199ba0847733a2d9996"
+    },
+    {
+      "id": "aud_3",
+      "event_id": "ca0a1d0e-b2b8-4d06-a314-d4b66a1c3ddd",
+      "sequence_number": 3,
+      "actor_user_id": "usr_owner_alex",
+      "actor_email": "owner_alex@trustvault.security",
+      "action": "DOCUMENT_UPLOAD",
+      "document_id": "doc_iso_27001_soc2",
+      "target_user_id": null,
+      "timestamp": "2026-11-04T13:04:18.834Z",
+      "outcome": "SUCCESS",
+      "reason_code": "CONFIDENTIAL_DOC_STORED",
+      "request_id": "req_init_3",
+      "metadata": {
+        "filename": "ISO_27001_SOC2_Plan.txt",
+        "size": 439
+      },
+      "previous_hash": "ba2c50ecb26d8dd74fe10b1acb2ea0167d685aaf7f155199ba0847733a2d9996",
+      "canonical_hash": "5eed0492ce246dae65f60cbc1c4197f64fbc35287f9e02c33ce24486bf236307",
+      "event_hash": "827474b5360cce670e7e0054e12fcbb6253cff320873349c6f7f64a9374dfa1e"
+    },
+    {
+      "id": "aud_4",
+      "event_id": "fc6dd79c-e8c2-49d6-a890-3617a45181f7",
+      "sequence_number": 4,
+      "actor_user_id": "usr_owner_alex",
+      "actor_email": "owner_alex@trustvault.security",
+      "action": "PERMISSION_GRANTED",
+      "document_id": "doc_iso_27001_soc2",
+      "target_user_id": "usr_viewer_sarah",
+      "timestamp": "2026-11-04T13:04:19.834Z",
+      "outcome": "SUCCESS",
+      "reason_code": "AUTHORIZED_READ_DELEGATION",
+      "request_id": "req_init_4",
+      "metadata": {
+        "permission_level": "READ"
+      },
+      "previous_hash": "827474b5360cce670e7e0054e12fcbb6253cff320873349c6f7f64a9374dfa1e",
+      "canonical_hash": "da95f0fc0cf569af09e478bd0a4c5146dce8e5c8a82a8cb086c34d8a28fa161a",
+      "event_hash": "050b742ad99cf061b3444f7877faa082919892ad58edb096ff5a15eae55d8a9c"
+    },
+    {
+      "id": "aud_5",
+      "event_id": "6ac9c7e8-5b9e-406b-b681-98885f90b085",
+      "sequence_number": 5,
+      "actor_user_id": "usr_owner_alex",
+      "actor_email": "owner_alex@trustvault.security",
+      "action": "PERMISSION_GRANTED",
+      "document_id": "doc_iso_27001_soc2",
+      "target_user_id": "usr_editor_david",
+      "timestamp": "2026-11-04T13:04:20.834Z",
+      "outcome": "SUCCESS",
+      "reason_code": "AUTHORIZED_EDIT_DELEGATION",
+      "request_id": "req_init_5",
+      "metadata": {
+        "permission_level": "EDIT"
+      },
+      "previous_hash": "050b742ad99cf061b3444f7877faa082919892ad58edb096ff5a15eae55d8a9c",
+      "canonical_hash": "cdf654a74ddbb297106a70680c2bb2944af8c6aabc0ba737addaf46684c74f65",
+      "event_hash": "550423420dac683cdfea2ef245b71fd6746283e358abb64ef6d6f540f6f122c4"
+    },
+    {
+      "id": "aud_6",
+      "event_id": "24c72971-95d2-409b-aaf7-1cfa7621477f",
+      "sequence_number": 6,
+      "actor_user_id": "usr_unauth_john",
+      "actor_email": "unauth_john@trustvault.security",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "document_id": "doc_iso_27001_soc2",
+      "target_user_id": null,
+      "timestamp": "2026-11-06T13:04:28.507Z",
+      "outcome": "DENIED",
+      "reason_code": "TEST_DENIED_AUDIT_VERIFICATION",
+      "request_id": "test_req_denied",
+      "metadata": {},
+      "previous_hash": "550423420dac683cdfea2ef245b71fd6746283e358abb64ef6d6f540f6f122c4",
+      "canonical_hash": "74277ab5d75fd9611c0a1497b8d75e51fc17374bd4c0d8c4472ab339f1013532",
+      "event_hash": "d64a83f9e5e0f88dad1082cc47feff90ff91af1a11359b588b4b1d8df459e6cc"
+    },
+    {
+      "id": "aud_7",
+      "event_id": "628cb36d-4985-4c20-82f3-18123e21ac1d",
+      "sequence_number": 7,
+      "actor_user_id": "usr_owner_alex",
+      "actor_email": "owner_alex@trustvault.security",
+      "action": "DOCUMENT_DOWNLOAD",
+      "document_id": "doc_iso_27001_soc2",
+      "target_user_id": null,
+      "timestamp": "2026-11-06T13:04:28.507Z",
+      "outcome": "SUCCESS",
+      "reason_code": "CONFIDENTIAL_DOWNLOAD_DISPATCHED",
+      "request_id": "test_req_download",
+      "metadata": {
+        "filename": "ISO_27001_SOC2_Plan.txt",
+        "size": 439
+      },
+      "previous_hash": "d64a83f9e5e0f88dad1082cc47feff90ff91af1a11359b588b4b1d8df459e6cc",
+      "canonical_hash": "a97b5d5f4fcc06f86f9e914e87b3a61c034db22dd62d17dfedafa818c7960b95",
+      "event_hash": "13c837c49755e419885b9f1ad3304ee3db41525e959e7eadf7feb7498d5d8a1e"
+    },
+    {
+      "id": "aud_8",
+      "event_id": "363ce5c5-b299-4f49-876c-96881eb639e5",
+      "sequence_number": 8,
+      "actor_user_id": "usr_2311e677",
+      "actor_email": "test_new_user@trustvault.security",
+      "action": "USER_REGISTERED",
+      "document_id": null,
+      "target_user_id": "usr_2311e677",
+      "timestamp": "2026-11-06T14:05:05.661Z",
+      "outcome": "SUCCESS",
+      "reason_code": "SELF_SERVICE_REGISTRATION",
+      "request_id": "req_87005bb1-2",
+      "metadata": {
+        "role": "OWNER",
+        "department": "Engineering",
+        "ip": "127.0.0.1"
+      },
+      "previous_hash": "13c837c49755e419885b9f1ad3304ee3db41525e959e7eadf7feb7498d5d8a1e",
+      "canonical_hash": "44239a5b6ef43b0df4302e8d15d3a44caaa0c85ea1f0855cf0a30b8aa887771e",
+      "event_hash": "68fc087dac88491bd40d071e0df51fab8c0ff6502c658a5a4ed885f516a3778f"
+    },
+    {
+      "id": "aud_9",
+      "event_id": "3c1a88fd-073e-422c-880f-b2ec8d075986",
+      "sequence_number": 9,
+      "actor_user_id": null,
+      "actor_email": "test_new_user@trustvault.security",
+      "action": "REGISTRATION_FAILED",
+      "document_id": null,
+      "target_user_id": null,
+      "timestamp": "2026-11-06T14:05:09.788Z",
+      "outcome": "DENIED",
+      "reason_code": "EMAIL_ALREADY_REGISTERED",
+      "request_id": "req_444be4b9-b",
+      "metadata": {
+        "ip": "127.0.0.1"
+      },
+      "previous_hash": "68fc087dac88491bd40d071e0df51fab8c0ff6502c658a5a4ed885f516a3778f",
+      "canonical_hash": "e34ccd165120d2023718950f2fcf2c71014f6ccb6a9bb0ebb4ed500efed72f17",
+      "event_hash": "4747a3d528aba5303280cba3191b4572a2d36cc1c123e6d322e649e7dc213fb8"
+    },
+    {
+      "id": "aud_10",
+      "event_id": "871ebe5d-0945-4ec6-a80b-65c9741b61dc",
+      "sequence_number": 10,
+      "actor_user_id": "usr_unauth_john",
+      "actor_email": "unauth_john@trustvault.security",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "document_id": "doc_iso_27001_soc2",
+      "target_user_id": null,
+      "timestamp": "2026-11-06T14:05:18.314Z",
+      "outcome": "DENIED",
+      "reason_code": "TEST_DENIED_AUDIT_VERIFICATION",
+      "request_id": "test_req_denied",
+      "metadata": {},
+      "previous_hash": "4747a3d528aba5303280cba3191b4572a2d36cc1c123e6d322e649e7dc213fb8",
+      "canonical_hash": "de2be038298fae24d46e1c7d00b280964bef8c38143ca570f43e41a8826a8d68",
+      "event_hash": "de0308e1324d80b6ea2a76113c704e7e7402cdef4a1f0b8d450b266cb68a92f5"
+    },
+    {
+      "id": "aud_11",
+      "event_id": "53ff787a-77b1-4cd7-babc-3ae0cf1b1c68",
+      "sequence_number": 11,
+      "actor_user_id": "usr_owner_alex",
+      "actor_email": "owner_alex@trustvault.security",
+      "action": "DOCUMENT_DOWNLOAD",
+      "document_id": "doc_iso_27001_soc2",
+      "target_user_id": null,
+      "timestamp": "2026-11-06T14:05:18.314Z",
+      "outcome": "SUCCESS",
+      "reason_code": "CONFIDENTIAL_DOWNLOAD_DISPATCHED",
+      "request_id": "test_req_download",
+      "metadata": {
+        "filename": "ISO_27001_SOC2_Plan.txt",
+        "size": 439
+      },
+      "previous_hash": "de0308e1324d80b6ea2a76113c704e7e7402cdef4a1f0b8d450b266cb68a92f5",
+      "canonical_hash": "59766e16a498b7017d4cb0ea37a4b104b3d753e7d4f87ceafa074e021398fa54",
+      "event_hash": "168a871f6daefc7049aca0471d865bceb8a300b20b98d4a2f5dfa503cddb9a83"
+    }
+  ],
+  "security_events": [
+    {
+      "id": "sec_1e32f20e",
+      "event_type": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "severity": "HIGH",
+      "actor_email": "unauth_john@trustvault.security",
+      "details": "Access attempt denied for action: UNAUTHORIZED_ACCESS_ATTEMPT on document: doc_iso_27001_soc2. Reason: TEST_DENIED_AUDIT_VERIFICATION",
+      "timestamp": "2026-11-06T13:04:28.507Z",
+      "resolved": false
+    },
+    {
+      "id": "sec_341db180",
+      "event_type": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "severity": "HIGH",
+      "actor_email": "test_new_user@trustvault.security",
+      "details": "Access attempt denied for action: REGISTRATION_FAILED on document: N/A. Reason: EMAIL_ALREADY_REGISTERED",
+      "timestamp": "2026-11-06T14:05:09.788Z",
+      "resolved": false
+    },
+    {
+      "id": "sec_ef05e197",
+      "event_type": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "severity": "HIGH",
+      "actor_email": "unauth_john@trustvault.security",
+      "details": "Access attempt denied for action: UNAUTHORIZED_ACCESS_ATTEMPT on document: doc_iso_27001_soc2. Reason: TEST_DENIED_AUDIT_VERIFICATION",
+      "timestamp": "2026-11-06T14:05:18.314Z",
+      "resolved": false
+    }
+  ]
+}

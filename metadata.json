@@ -1,0 +1,6 @@
+{
+  "name": "TrustVault",
+  "description": "Secure document management and intelligent access control platform with cryptographic audit trail, immediate permission revocation, and automated security testing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
