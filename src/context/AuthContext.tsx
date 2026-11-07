@@ -87,7 +87,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, []);
 
   const login = async (email: string, pass: string): Promise<User> => {
-    setLoading(true);
     try {
       const { user: loggedInUser } = await api.login(email, pass);
       setUser(loggedInUser);
@@ -107,8 +106,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     } catch (err: any) {
       showToast('error', 'Login Failed', err.message || 'Authentication failed');
       throw err;
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -119,7 +116,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     department?: string;
     role?: 'OWNER' | 'VIEWER';
   }): Promise<User> => {
-    setLoading(true);
     try {
       const { user: registeredUser } = await api.register(payload);
       setUser(registeredUser);
@@ -135,12 +131,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     } catch (err: any) {
       showToast('error', 'Registration Failed', err.message || 'Could not create account');
       throw err;
-    } finally {
-      setLoading(false);
     }
   };
 
-  const quickLoginAs = async (email: string, pass: string) => {
+  const quickLoginAs = async (email: string, pass: string): Promise<void> => {
     await login(email, pass);
   };
 

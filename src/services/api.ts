@@ -9,19 +9,35 @@ import {
   SecurityReport,
 } from '../types';
 
+let inMemoryToken: string | null = null;
 const TOKEN_KEY = 'trustvault_access_token';
 
 export const api = {
   getToken(): string | null {
-    return localStorage.getItem(TOKEN_KEY);
+    if (inMemoryToken) return inMemoryToken;
+    try {
+      return localStorage.getItem(TOKEN_KEY);
+    } catch {
+      return null;
+    }
   },
 
   setToken(token: string): void {
-    localStorage.setItem(TOKEN_KEY, token);
+    inMemoryToken = token;
+    try {
+      localStorage.setItem(TOKEN_KEY, token);
+    } catch {
+      // Storage access may be blocked in iframe sandboxes; in-memory fallback maintains session
+    }
   },
 
   clearToken(): void {
-    localStorage.removeItem(TOKEN_KEY);
+    inMemoryToken = null;
+    try {
+      localStorage.removeItem(TOKEN_KEY);
+    } catch {
+      // Ignore storage access error in restricted sandbox
+    }
   },
 
   async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
@@ -40,6 +56,7 @@ export const api = {
 
     const res = await fetch(`/api${endpoint}`, {
       ...options,
+      credentials: 'same-origin',
       headers,
     });
 
@@ -61,9 +78,10 @@ export const api = {
 
   // Auth
   async login(email: string, password: string): Promise<{ token: string; user: User }> {
+    const cleanEmail = email.trim().toLowerCase();
     const data = await this.request<{ token: string; user: User }>('/auth/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email: cleanEmail, password }),
     });
     this.setToken(data.token);
     return data;
@@ -76,9 +94,13 @@ export const api = {
     department?: string;
     role?: 'OWNER' | 'VIEWER';
   }): Promise<{ token: string; user: User }> {
+    const cleanEmail = payload.email.trim().toLowerCase();
     const data = await this.request<{ token: string; user: User }>('/auth/register', {
       method: 'POST',
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        ...payload,
+        email: cleanEmail,
+      }),
     });
     this.setToken(data.token);
     return data;

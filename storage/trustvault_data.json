@@ -10,7 +10,7 @@
       "full_name": "Arthur Vance (SecOps Lead)",
       "department": "Security Operations & Governance",
       "created_at": "2026-11-06T13:04:15.192Z",
-      "last_login_at": null
+      "last_login_at": "2026-11-07T05:36:07.600Z"
     },
     {
       "id": "usr_owner_alex",
@@ -22,7 +22,7 @@
       "full_name": "Alex Rivera (Principal Architect)",
       "department": "Core Infrastructure",
       "created_at": "2026-11-06T13:04:15.192Z",
-      "last_login_at": null
+      "last_login_at": "2026-11-07T05:35:31.843Z"
     },
     {
       "id": "usr_owner_elena",
@@ -107,6 +107,18 @@
       "last_login_at": "2026-11-06T14:05:05.659Z",
       "id": "usr_2311e677",
       "created_at": "2026-11-06T14:05:05.660Z"
+    },
+    {
+      "email": "test_user_reg@trustvault.security",
+      "full_name": "Test User",
+      "department": "Engineering",
+      "role": "OWNER",
+      "is_active": true,
+      "must_change_password": false,
+      "password_hash": "74cc58487494a682273539b947614258:5bdb1325d5b6769b3d803f576c9af27e2b5e25e01134af96607b695a7eba7a479dd6aa54d8b25b0fdb394dd71b35633e9fd293758af83f0becde2d950a7633bd",
+      "last_login_at": "2026-11-07T05:36:04.275Z",
+      "id": "usr_eb35d569",
+      "created_at": "2026-11-07T05:35:48.383Z"
     }
   ],
   "documents": [
@@ -432,6 +444,153 @@
       "previous_hash": "de0308e1324d80b6ea2a76113c704e7e7402cdef4a1f0b8d450b266cb68a92f5",
       "canonical_hash": "59766e16a498b7017d4cb0ea37a4b104b3d753e7d4f87ceafa074e021398fa54",
       "event_hash": "168a871f6daefc7049aca0471d865bceb8a300b20b98d4a2f5dfa503cddb9a83"
+    },
+    {
+      "id": "aud_12",
+      "event_id": "258e741c-72eb-4b6c-b4c0-33941a68395e",
+      "sequence_number": 12,
+      "actor_user_id": "usr_admin_01",
+      "actor_email": "admin@trustvault.security",
+      "action": "LOGIN_SUCCESS",
+      "document_id": null,
+      "target_user_id": null,
+      "timestamp": "2026-11-07T05:30:08.444Z",
+      "outcome": "SUCCESS",
+      "reason_code": "AUTHENTICATION_SUCCESSFUL",
+      "request_id": "req_c1497902-8",
+      "metadata": {
+        "role": "ADMIN",
+        "ip": "127.0.0.1"
+      },
+      "previous_hash": "168a871f6daefc7049aca0471d865bceb8a300b20b98d4a2f5dfa503cddb9a83",
+      "canonical_hash": "32e3784b683106ee9c8da16e219b260ddc7b0e1dc14494b0287acfb21dc4e9e0",
+      "event_hash": "a2e157591354777ea5fad138e2133f356da8ea06d1faa9198deb72d537d44189"
+    },
+    {
+      "id": "aud_13",
+      "event_id": "b742cd50-4375-42ba-aff6-3afc8986ba02",
+      "sequence_number": 13,
+      "actor_user_id": "usr_admin_01",
+      "actor_email": "admin@trustvault.security",
+      "action": "LOGIN_SUCCESS",
+      "document_id": null,
+      "target_user_id": null,
+      "timestamp": "2026-11-07T05:35:27.807Z",
+      "outcome": "SUCCESS",
+      "reason_code": "AUTHENTICATION_SUCCESSFUL",
+      "request_id": "req_00ae8135-c",
+      "metadata": {
+        "role": "ADMIN",
+        "ip": "127.0.0.1"
+      },
+      "previous_hash": "a2e157591354777ea5fad138e2133f356da8ea06d1faa9198deb72d537d44189",
+      "canonical_hash": "32f2f8985e9261813186361d0f1b27e397e6793c11f55f4a7b72528a11cd5f77",
+      "event_hash": "5565eadee9310e9a4fdcf73475d648e84587d4ee7c1e2a3afb6fcd1217749cb4"
+    },
+    {
+      "id": "aud_14",
+      "event_id": "8250896c-c1e8-4ecc-ae21-d95201180ffe",
+      "sequence_number": 14,
+      "actor_user_id": "usr_owner_alex",
+      "actor_email": "owner_alex@trustvault.security",
+      "action": "LOGIN_SUCCESS",
+      "document_id": null,
+      "target_user_id": null,
+      "timestamp": "2026-11-07T05:35:31.843Z",
+      "outcome": "SUCCESS",
+      "reason_code": "AUTHENTICATION_SUCCESSFUL",
+      "request_id": "req_87d3196a-8",
+      "metadata": {
+        "role": "OWNER",
+        "ip": "127.0.0.1"
+      },
+      "previous_hash": "5565eadee9310e9a4fdcf73475d648e84587d4ee7c1e2a3afb6fcd1217749cb4",
+      "canonical_hash": "8b6aacda2d7080ac7f9057e047faeb798fdb700ebc1f4b6be6e8b1b389c0f8df",
+      "event_hash": "de1b0698b1900fad0770ef3d9e92137b23de76d718c503ef10171e3dfd9b6565"
+    },
+    {
+      "id": "aud_15",
+      "event_id": "a63d7812-d3db-4a60-aa53-ede21043b944",
+      "sequence_number": 15,
+      "actor_user_id": "usr_inactive_mark",
+      "actor_email": "inactive_mark@trustvault.security",
+      "action": "LOGIN_FAILURE",
+      "document_id": null,
+      "target_user_id": null,
+      "timestamp": "2026-11-07T05:35:35.915Z",
+      "outcome": "DENIED",
+      "reason_code": "ACCOUNT_DEACTIVATED",
+      "request_id": "req_26212ee3-5",
+      "metadata": {
+        "ip": "127.0.0.1"
+      },
+      "previous_hash": "de1b0698b1900fad0770ef3d9e92137b23de76d718c503ef10171e3dfd9b6565",
+      "canonical_hash": "f68bcea1f6772b023a8985109cf07524076b8ce3fa44a24efb19f3d8446882cc",
+      "event_hash": "989a68804f38d481b89ae38729b7f7458de26cb6f963e5be5fde529c883ec988"
+    },
+    {
+      "id": "aud_16",
+      "event_id": "4b20c02c-ef53-42d2-a809-88976c9625cd",
+      "sequence_number": 16,
+      "actor_user_id": "usr_eb35d569",
+      "actor_email": "test_user_reg@trustvault.security",
+      "action": "USER_REGISTERED",
+      "document_id": null,
+      "target_user_id": "usr_eb35d569",
+      "timestamp": "2026-11-07T05:35:48.384Z",
+      "outcome": "SUCCESS",
+      "reason_code": "SELF_SERVICE_REGISTRATION",
+      "request_id": "req_a1cd7cbb-f",
+      "metadata": {
+        "role": "OWNER",
+        "department": "Engineering",
+        "ip": "127.0.0.1"
+      },
+      "previous_hash": "989a68804f38d481b89ae38729b7f7458de26cb6f963e5be5fde529c883ec988",
+      "canonical_hash": "28ea852fecd487eab9490b04dd2b207f3120356797095bcbd6614c9929d829d9",
+      "event_hash": "fce8116b9c25fbab4440bf8408e196d4732d9752cbf41d877eafe039a544dc18"
+    },
+    {
+      "id": "aud_17",
+      "event_id": "1dd4417a-32e2-4956-8ec2-1d2282679772",
+      "sequence_number": 17,
+      "actor_user_id": "usr_eb35d569",
+      "actor_email": "test_user_reg@trustvault.security",
+      "action": "LOGIN_SUCCESS",
+      "document_id": null,
+      "target_user_id": null,
+      "timestamp": "2026-11-07T05:36:04.276Z",
+      "outcome": "SUCCESS",
+      "reason_code": "AUTHENTICATION_SUCCESSFUL",
+      "request_id": "req_850c495d-e",
+      "metadata": {
+        "role": "OWNER",
+        "ip": "127.0.0.1"
+      },
+      "previous_hash": "fce8116b9c25fbab4440bf8408e196d4732d9752cbf41d877eafe039a544dc18",
+      "canonical_hash": "c18179160e01e44799c82044492c592a456c4bb7855af5e80275381aee084935",
+      "event_hash": "8087704f6c2ac932f6ab83c7c7c4425690666f7acd5c6164de4d5b929acf4430"
+    },
+    {
+      "id": "aud_18",
+      "event_id": "9c964c89-bd8e-4f2f-9a57-82874228d4db",
+      "sequence_number": 18,
+      "actor_user_id": "usr_admin_01",
+      "actor_email": "admin@trustvault.security",
+      "action": "LOGIN_SUCCESS",
+      "document_id": null,
+      "target_user_id": null,
+      "timestamp": "2026-11-07T05:36:07.601Z",
+      "outcome": "SUCCESS",
+      "reason_code": "AUTHENTICATION_SUCCESSFUL",
+      "request_id": "req_07254405-c",
+      "metadata": {
+        "role": "ADMIN",
+        "ip": "127.0.0.1"
+      },
+      "previous_hash": "8087704f6c2ac932f6ab83c7c7c4425690666f7acd5c6164de4d5b929acf4430",
+      "canonical_hash": "c2f2e1e490f7eebf60a80dc46e5ce6760b4819cb5f9de94d7400e583dffc4970",
+      "event_hash": "d216abafbfe1ae874ca9437e971d67324585534e60aedaa9ab7b15139317f699"
     }
   ],
   "security_events": [
@@ -460,6 +619,15 @@
       "actor_email": "unauth_john@trustvault.security",
       "details": "Access attempt denied for action: UNAUTHORIZED_ACCESS_ATTEMPT on document: doc_iso_27001_soc2. Reason: TEST_DENIED_AUDIT_VERIFICATION",
       "timestamp": "2026-11-06T14:05:18.314Z",
+      "resolved": false
+    },
+    {
+      "id": "sec_98e65e14",
+      "event_type": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "severity": "HIGH",
+      "actor_email": "inactive_mark@trustvault.security",
+      "details": "Access attempt denied for action: LOGIN_FAILURE on document: N/A. Reason: ACCOUNT_DEACTIVATED",
+      "timestamp": "2026-11-07T05:35:35.915Z",
       "resolved": false
     }
   ]

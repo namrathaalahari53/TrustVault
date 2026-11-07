@@ -38,9 +38,24 @@ export const LoginPage: React.FC = () => {
     setError(null);
     setIsSubmitting(true);
     try {
-      await login(email, password);
+      await login(email.trim(), password);
     } catch (err: any) {
       setError(err.message || 'Authentication failed. Please verify credentials.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleQuickLogin = async (accEmail: string, accPass: string) => {
+    setMode('LOGIN');
+    setEmail(accEmail);
+    setPassword(accPass);
+    setError(null);
+    setIsSubmitting(true);
+    try {
+      await quickLoginAs(accEmail, accPass);
+    } catch (err: any) {
+      setError(err.message || 'Authentication failed for selected persona.');
     } finally {
       setIsSubmitting(false);
     }
@@ -63,10 +78,10 @@ export const LoginPage: React.FC = () => {
     setIsSubmitting(true);
     try {
       await register({
-        email: regEmail,
+        email: regEmail.trim(),
         password: regPassword,
-        full_name: regFullName,
-        department: regDepartment,
+        full_name: regFullName.trim(),
+        department: regDepartment.trim(),
         role: regRole,
       });
     } catch (err: any) {
@@ -350,13 +365,9 @@ export const LoginPage: React.FC = () => {
                 <button
                   key={acc.email}
                   type="button"
-                  onClick={() => {
-                    setMode('LOGIN');
-                    setEmail(acc.email);
-                    setPassword(acc.pass);
-                    quickLoginAs(acc.email, acc.pass);
-                  }}
-                  className="text-left p-2.5 rounded-lg bg-slate-950/80 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-800/40 transition-all flex flex-col justify-between"
+                  disabled={isSubmitting}
+                  onClick={() => handleQuickLogin(acc.email, acc.pass)}
+                  className="text-left p-2.5 rounded-lg bg-slate-950/80 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-800/40 transition-all flex flex-col justify-between disabled:opacity-50"
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-white truncate">{acc.label}</span>

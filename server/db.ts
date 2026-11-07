@@ -479,7 +479,9 @@ Summary of internal capital allocations, penetration testing vendor fees, and cr
   }
 
   public findUserByEmail(email: string): UserRecord | undefined {
-    return this.data.users.find((u) => u.email.toLowerCase() === email.toLowerCase());
+    if (!email) return undefined;
+    const clean = email.trim().toLowerCase();
+    return this.data.users.find((u) => u.email.trim().toLowerCase() === clean);
   }
 
   public createUser(user: Omit<UserRecord, 'id' | 'created_at'>): UserRecord {

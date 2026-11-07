@@ -158,12 +158,14 @@ router.post('/auth/login', (req: Request, res: Response): void => {
     return;
   }
 
+  const cleanEmail = email.trim().toLowerCase();
+
   // Check rate limit
-  const rateLimit = checkLoginRateLimit(`${email}_${ip}`);
+  const rateLimit = checkLoginRateLimit(`${cleanEmail}_${ip}`);
   if (!rateLimit.allowed) {
     db.appendAuditEvent({
       actor_user_id: null,
-      actor_email: email,
+      actor_email: cleanEmail,
       action: 'LOGIN_FAILURE',
       document_id: null,
       target_user_id: null,
@@ -180,14 +182,14 @@ router.post('/auth/login', (req: Request, res: Response): void => {
     return;
   }
 
-  const user = db.findUserByEmail(email);
+  const user = db.findUserByEmail(cleanEmail);
 
   if (!user || !verifyPassword(password, user.password_hash)) {
-    recordLoginAttempt(`${email}_${ip}`, false);
+    recordLoginAttempt(`${cleanEmail}_${ip}`, false);
 
     db.appendAuditEvent({
       actor_user_id: user ? user.id : null,
-      actor_email: email,
+      actor_email: cleanEmail,
       action: 'LOGIN_FAILURE',
       document_id: null,
       target_user_id: null,
@@ -220,7 +222,7 @@ router.post('/auth/login', (req: Request, res: Response): void => {
   }
 
   // Login success
-  recordLoginAttempt(`${email}_${ip}`, true);
+  recordLoginAttempt(`${cleanEmail}_${ip}`, true);
   db.updateUser(user.id, { last_login_at: new Date().toISOString() });
 
   const token = generateToken(user);

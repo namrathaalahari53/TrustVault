@@ -34,8 +34,8 @@ const AppContent: React.FC = () => {
     );
   }
 
-  // If not logged in and not on a public view, show Login
-  if (!user && activeView !== 'login') {
+  // If not authenticated, always render Login page and ToastContainer
+  if (!user) {
     return (
       <>
         <LoginPage />
@@ -47,7 +47,9 @@ const AppContent: React.FC = () => {
   const renderActiveView = () => {
     switch (activeView) {
       case 'login':
-        return <LoginPage />;
+        if (user.role === 'ADMIN') return <AdminDashboardPage />;
+        if (user.role === 'OWNER') return <OwnerDashboardPage />;
+        return <MemberDashboardPage />;
       case 'first-time-password':
         return <FirstTimePasswordChangePage />;
       case 'admin-dashboard':

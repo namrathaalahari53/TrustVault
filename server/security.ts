@@ -43,6 +43,14 @@ export function checkLoginRateLimit(ipOrEmail: string): { allowed: boolean; wait
   return { allowed: true };
 }
 
+export function clearLoginRateLimit(ipOrEmail?: string): void {
+  if (ipOrEmail) {
+    loginRateLimitMap.delete(ipOrEmail.toLowerCase());
+  } else {
+    loginRateLimitMap.clear();
+  }
+}
+
 export function recordLoginAttempt(ipOrEmail: string, success: boolean): void {
   const key = ipOrEmail.toLowerCase();
   const now = Date.now();
@@ -54,8 +62,8 @@ export function recordLoginAttempt(ipOrEmail: string, success: boolean): void {
   }
 
   record.attempts += 1;
-  // If 5 failed attempts within window, block for 5 minutes
-  if (record.attempts >= 5) {
+  // If 10 failed attempts within window, block for 5 minutes
+  if (record.attempts >= 10) {
     record.blockedUntil = now + 5 * 60 * 1000;
   }
   loginRateLimitMap.set(key, record);
